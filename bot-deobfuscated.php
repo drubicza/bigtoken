@@ -2,10 +2,15 @@
 date_default_timezone_set('Asia/Jakarta');
 system("clear");
 
-$t="\n";$r="\t";
+$t="\n";
+$r="\t";
 //warna
-$br="\033[1;34m";$tr="\033[1;36m";$ijo="\033[92m";
-$pth="\033[1;37m";$pnk="\033[1;35m";$red="\033[1;31m";
+$br="\033[1;34m";
+$tr="\033[1;36m";
+$ijo="\033[92m";
+$pth="\033[1;37m";
+$pnk="\033[1;35m";
+$red="\033[1;31m";
 $kn="\033[1;33m";
 $info="bigtoken";
 
@@ -243,9 +248,12 @@ while(true):
       $user=$js["data"]["user"];
 
       if($user!=null){
-        $id=$user["id"];$email=$user["email"];
-        $first=$user["first_name"];$bigid=$user["big_id"];
-        $last=$user["last_name"];$nik=$first." ".$last;
+        $id=$user["id"];
+        $email=$user["email"];
+        $first=$user["first_name"];
+        $bigid=$user["big_id"];
+        $last=$user["last_name"];
+        $nik=$first." ".$last;
         $poin=$js["data"]["available_big_points"];
         $b=explode(".",($poin/100));
         $bal=$b[0];
@@ -257,7 +265,8 @@ while(true):
           $usr=$email;
         }
 
-        echo $pth."[•]=[".$tr.$usr.$pth."]=[$br poin : ".$ijo.$poin.$pth." ]=[ $".$ijo.$bal.$t;break;
+        echo $pth."[•]=[".$tr.$usr.$pth."]=[$br poin : ".$ijo.$poin.$pth." ]=[ $".$ijo.$bal.$t;
+        break;
       }else{
         $login=true;
         echo "[•]=[ ".$js["error"]["message"].$t;
@@ -288,14 +297,16 @@ $aksi=gets($path,$token);
 $js=json_decode($aksi,true);
 $big_ref=$js["data"]["referral_id"];
 $big_id=$js["data"]["bigid"];
-echo $tr."[•]=[".$br."validasi".$tr."]=[ ".$ijo.$big_id;sleep(3);
+echo $tr."[•]=[".$br."validasi".$tr."]=[ ".$ijo.$big_id;
+sleep(3);
 
 if($big_ref=="CIDON1N3D"){
   $unlock=true;
 }else{
   foreach($memb as $membr){
     if($big_id==$membr){
-      $unlock=true;break;
+      $unlock=true;
+      break;
     }else{
       $unlock=false;
     }
@@ -307,7 +318,8 @@ if($unlock){
   cr();
 }else{
   echo $tr." ]=[ ".$red."permission denied ]".$t;
-  $error=true;cr();
+  $error=true;
+  cr();
 }
 
 if($error){
@@ -406,7 +418,8 @@ if($stat_big){
             $post=json_encode($data);
             $aksi=post($path,$post,$token);
             $js=json_decode($aksi,true);
-            $data=$js["reward_data"];$stt=$data["reward"];
+            $data=$js["reward_data"];
+            $stt=$data["reward"];
             $msg=$data["msg"];
 
             if($stt==1){
@@ -422,7 +435,8 @@ if($stat_big){
             $js=json_decode($aksi,true);
             #print_r($js);exit;
             $conten=$js["data"]["content"]["questions"];
-            $con=count($conten);$merge=[];
+            $con=count($conten);
+            $merge=[];
 
             for($i=0;$i<$con;$i++){
               $keys=$conten[$i]["data_point_key"];
@@ -441,14 +455,14 @@ if($stat_big){
               $merge=array_merge($merge,$put);
             }
 
-            $data=["data_point_values"=> $merge,
-                  "option_uuid"=> $uuid];
+            $data=["data_point_values"=> $merge,"option_uuid"=> $uuid];
 
             $path="actions/submit";
             $post=json_encode($data);
             $aksi=post($path,$post,$token);
             $js=json_decode($aksi,true);
-            $data=$js["reward_data"];$stt=$data["reward"];
+            $data=$js["reward_data"];
+            $stt=$data["reward"];
             $msg=$data["msg"];
 
             if($stt==1){
@@ -464,7 +478,8 @@ if($stat_big){
             $post="path=https://s3.amazonaws.com/media.bigtoken.com/action/400x400_a27cubbZcZP2iq5wHJxFPhbYfaen3Ok7O6opmblM.jpeg&option_uuid=$uuid";
             $aksi=poto($path,$post,$token);
             $js=json_decode($aksi,true);
-            $data=$js["reward_data"];$stt=$data["reward"];
+            $data=$js["reward_data"];
+            $stt=$data["reward"];
             $msg=$data["msg"];
 
             if($stt==1){
@@ -514,7 +529,8 @@ if($stat_big){
             $post=json_encode($data);
             $aksi=post($path,$post,$token);
             $js=json_decode($aksi,true);
-            $data=$js["reward_data"];$stt=$data["reward"];
+            $data=$js["reward_data"];
+            $stt=$data["reward"];
             $msg=$data["msg"];
 
             if($stt==1){
